@@ -8,7 +8,7 @@
 .date-label {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: #2e2e2e;
   white-space: nowrap;
 }
 
@@ -22,23 +22,38 @@
   width: 100%;
   padding: 10px 16px;
   font-size: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  color: #333;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+
+  /* Custom dropdown arrow */
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 14px center;
   padding-right: 40px;
 }
 
-.date-select:focus {
-  border-color: #667eea;
+.date-select:hover {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.date-select:focus {
+  border-color: #a8edea;
+  box-shadow: 0 0 0 3px rgba(168, 237, 234, 0.4);
+}
+
+/* Dropdown options styling */
 .date-select option {
+  color: #333;
+  background-color: #fff;
+  font-size: 15px;
   padding: 10px;
+  border: none;
 }
