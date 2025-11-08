@@ -1,15 +1,13 @@
 <div class="date-picker-container">
   <label class="date-label">Filter by Date:</label>
   <div class="date-wrapper">
-    <select
-      class="date-select"
-      [(ngModel)]="selectedDate"
-      (change)="onDateChange()"
-    >
+    <select class="date-select" [(ngModel)]="selectedDate" (change)="onDateChange()">
       <option value="">All Dates</option>
-      <option *ngFor="let date of availableDates" [value]="date">
+      @for (date of availableDates; track date) {
+      <option [value]="date">
         {{ date }}
       </option>
+      }
     </select>
   </div>
 </div>

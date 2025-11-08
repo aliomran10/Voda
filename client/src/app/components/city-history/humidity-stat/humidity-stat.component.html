@@ -1,0 +1,20 @@
+<div class="stat-card humidity">
+  <div class="stat-icon">💧</div>
+  <div class="stat-content">
+    <h3>Humidity Range</h3>
+    <div class="stat-values">
+      <div class="stat-item">
+        <span class="label">Min:</span>
+        <span class="value">{{ stats.minHumidity | number : '1.0-0' }}%</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Max:</span>
+        <span class="value">{{ stats.maxHumidity | number : '1.0-0' }}%</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Avg:</span>
+        <span class="value highlight">{{ stats.avgHumidity | number : '1.0-0' }}%</span>
+      </div>
+    </div>
+  </div>
+</div>

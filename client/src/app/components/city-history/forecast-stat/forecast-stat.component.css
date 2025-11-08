@@ -1,0 +1,51 @@
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card.forecast-count {
+  border-left: 4px solid #9b59b6;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-big-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #9b59b6;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-description {
+  color: #95a5a6;
+  margin: 0;
+  font-size: 0.9rem;
+}

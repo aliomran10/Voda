@@ -17,10 +17,10 @@ import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
     WeatherCardComponent,
     CitySearchComponent,
     DatePickerComponent,
-    TemperatureToggleComponent
+    TemperatureToggleComponent,
   ],
   templateUrl: './weather-list.component.html',
-  styleUrl: './weather-list.component.css'
+  styleUrl: './weather-list.component.css',
 })
 export class WeatherListComponent implements OnInit, OnDestroy {
   cities: City[] = [];
@@ -35,18 +35,13 @@ export class WeatherListComponent implements OnInit, OnDestroy {
   private searchSubject = new Subject<string>();
   private destroy$ = new Subject<void>();
 
-  constructor(
-    private weatherService: WeatherService,
-    private router: Router
-  ) {
+  constructor(private weatherService: WeatherService, private router: Router) {
     // Setup debounced search
-    this.searchSubject.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      takeUntil(this.destroy$)
-    ).subscribe(searchTerm => {
-      this.performSearch(searchTerm);
-    });
+    this.searchSubject
+      .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this.destroy$))
+      .subscribe((searchTerm) => {
+        this.performSearch(searchTerm);
+      });
   }
 
   ngOnInit(): void {
@@ -58,35 +53,39 @@ export class WeatherListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  // Load all cities and extract available dates
   loadWeatherData(): void {
     this.isLoading = true;
     this.error = null;
 
-    this.weatherService.getAllCities().pipe(
-      takeUntil(this.destroy$)
-    ).subscribe({
-      next: (data) => {
-        this.cities = data;
-        this.extractAvailableDates();
-        this.applyFilters();
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.error = 'Failed to load weather data. Please try again.';
-        this.isLoading = false;
-        console.error('Error loading weather data:', err);
-      }
-    });
+    this.weatherService
+      .getAllCities()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => {
+          this.cities = data;
+          this.extractAvailableDates();
+          this.applyFilters();
+          this.isLoading = false;
+        },
+        error: (err) => {
+          this.error = 'Failed to load weather data. Please try again.';
+          this.isLoading = false;
+          console.error('Error loading weather data:', err);
+        },
+      });
   }
 
+  // Extract all unique dates from city forecasts
   extractAvailableDates(): void {
     const datesSet = new Set<string>();
-    this.cities.forEach(city => {
-      city.forecast.forEach(f => datesSet.add(f.date));
+    this.cities.forEach((city) => {
+      city.forecast.forEach((f) => datesSet.add(f.date));
     });
     this.availableDates = Array.from(datesSet).sort();
   }
 
+  // Search handling
   onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
     // Trigger debounced search via Subject
@@ -96,21 +95,22 @@ export class WeatherListComponent implements OnInit, OnDestroy {
   performSearch(searchTerm: string): void {
     this.error = null;
 
-    this.weatherService.searchCityByName(searchTerm).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe({
-      next: (data) => {
-        this.cities = data;
-        // No need to extract dates again - they were already extracted on initial load
-        this.applyFilters();
-      },
-      error: (err) => {
-        this.error = 'Failed to search for cities. Please try again.';
-        console.error('Error searching cities:', err);
-      }
-    });
+    this.weatherService
+      .searchCityByName(searchTerm)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => {
+          this.cities = data;
+          this.applyFilters();
+        },
+        error: (err) => {
+          this.error = 'Failed to search for cities. Please try again.';
+          console.error('Error searching cities:', err);
+        },
+      });
   }
 
+  // Filter by selected date
   onDateChange(date: string | undefined): void {
     this.selectedDate = date;
     this.applyFilters();
@@ -120,12 +120,11 @@ export class WeatherListComponent implements OnInit, OnDestroy {
     this.temperatureUnit = unit;
   }
 
+  // Apply search and date filters
   applyFilters(): void {
-    // Only apply date filtering now, since search is handled by API
-    this.filteredCities = this.cities.filter(city => {
-      // Filter by date (if date is selected, only show cities that have forecast for that date)
-      const matchesDate = !this.selectedDate ||
-        city.forecast.some(f => f.date === this.selectedDate);
+    this.filteredCities = this.cities.filter((city) => {
+      const matchesDate =
+        !this.selectedDate || city.forecast.some((f) => f.date === this.selectedDate);
 
       return matchesDate;
     });
@@ -134,7 +133,7 @@ export class WeatherListComponent implements OnInit, OnDestroy {
   onCardClick(cityId: number): void {
     // Navigate to city history page with temperature unit as query param
     this.router.navigate(['/city', cityId], {
-      queryParams: { unit: this.temperatureUnit }
+      queryParams: { unit: this.temperatureUnit },
     });
   }
 }

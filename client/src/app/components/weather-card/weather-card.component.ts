@@ -7,39 +7,50 @@ import { City, Forecast, TemperatureUnit } from '../../models/city.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './weather-card.component.html',
-  styleUrl: './weather-card.component.css'
+  styleUrls: ['./weather-card.component.css'],
 })
 export class WeatherCardComponent {
+  // Inputs
   @Input() city!: City;
   @Input() selectedDate?: string;
   @Input() temperatureUnit: TemperatureUnit = 'celsius';
+
+  // Output
   @Output() cardClick = new EventEmitter<number>();
 
+  // Get the displayed forecast based on selected date or default to latest
   get displayedForecast(): Forecast | undefined {
     if (!this.city || !this.city.forecast || this.city.forecast.length === 0) {
       return undefined;
     }
 
     if (this.selectedDate) {
-      return this.city.forecast.find(f => f.date === this.selectedDate);
+      return this.city.forecast.find((f) => f.date === this.selectedDate);
     }
 
-    // Return the latest date (last element in the array)
+    // Default: latest forecast
     return this.city.forecast[this.city.forecast.length - 1];
   }
 
+  // Get temperature based on selected unit
   get temperature(): number {
-    if (!this.displayedForecast) return 0;
+    const forecast = this.displayedForecast;
+    if (!forecast) return 0;
+
     return this.temperatureUnit === 'celsius'
-      ? this.displayedForecast.temperatureCelsius
-      : this.displayedForecast.temperatureFahrenheit;
+      ? forecast.temperatureCelsius
+      : forecast.temperatureFahrenheit;
   }
 
+  // Get temperature symbol for display
   get temperatureSymbol(): string {
     return this.temperatureUnit === 'celsius' ? '°C' : '°F';
   }
 
+  // Emit click event
   onCardClick(): void {
-    this.cardClick.emit(this.city.id);
+    if (this.city) {
+      this.cardClick.emit(this.city.id);
+    }
   }
 }

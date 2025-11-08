@@ -7,7 +7,7 @@ import { TemperatureUnit } from '../../models/city.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './temperature-toggle.component.html',
-  styleUrl: './temperature-toggle.component.css'
+  styleUrl: './temperature-toggle.component.css',
 })
 export class TemperatureToggleComponent {
   @Output() unitChange = new EventEmitter<TemperatureUnit>();

@@ -13,33 +13,34 @@
         [availableDates]="availableDates"
         (dateChange)="onDateChange($event)"
       ></app-date-picker>
-      <app-temperature-toggle
-        (unitChange)="onUnitChange($event)"
-      ></app-temperature-toggle>
+      <app-temperature-toggle (unitChange)="onUnitChange($event)"></app-temperature-toggle>
     </div>
   </div>
 
-  <div *ngIf="isLoading" class="loading">
+  @if (isLoading) {
+  <div class="loading">
     <div class="spinner"></div>
     <p>Loading weather data...</p>
   </div>
-
-  <div *ngIf="error" class="error">
+  } @if (error) {
+  <div class="error">
     <p>{{ error }}</p>
     <button class="retry-button" (click)="loadWeatherData()">Retry</button>
   </div>
-
-  <div *ngIf="!isLoading && !error" class="weather-grid">
+  } @if (!isLoading && !error) {
+  <div class="weather-grid">
+    @for (city of filteredCities; track city.id) {
     <app-weather-card
-      *ngFor="let city of filteredCities"
       [city]="city"
       [selectedDate]="selectedDate"
       [temperatureUnit]="temperatureUnit"
       (cardClick)="onCardClick($event)"
     ></app-weather-card>
+    }
   </div>
-
-  <div *ngIf="!isLoading && !error && filteredCities.length === 0" class="no-results">
+  } @if (!isLoading && !error && filteredCities.length === 0) {
+  <div class="no-results">
     <p>No cities found matching your criteria.</p>
   </div>
+  }
 </div>

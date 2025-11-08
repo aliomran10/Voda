@@ -1,0 +1,106 @@
+.table-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.forecast-table thead {
+  background: #f8f9fa;
+}
+
+.forecast-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #ecf0f1;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.forecast-row {
+  border-bottom: 1px solid #ecf0f1;
+  transition: background 0.2s ease;
+}
+
+.forecast-row:hover {
+  background: #f8f9fa;
+}
+
+.forecast-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.date-cell .date-text {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.temp-cell .temp-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e74c3c;
+}
+
+.humidity-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.humidity-value {
+  min-width: 50px;
+  font-weight: 500;
+  color: #3498db;
+}
+
+.humidity-bar {
+  flex: 1;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.humidity-fill {
+  height: 100%;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.visual-cell {
+  text-align: center;
+}
+
+.weather-emoji {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .forecast-table th,
+  .forecast-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .humidity-bar {
+    max-width: 100px;
+  }
+}

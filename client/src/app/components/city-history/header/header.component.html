@@ -1,0 +1,11 @@
+<header class="page-header">
+  <div class="header-top">
+    <a routerLink="/" class="back-link">
+      <span class="back-arrow">←</span>
+      <span>Back to List</span>
+    </a>
+    <app-temperature-toggle (unitChange)="onUnitChange($event)"> </app-temperature-toggle>
+  </div>
+  <h1 class="city-title">{{ city.city }}</h1>
+  <p class="subtitle">Weather History & Statistics</p>
+</header>

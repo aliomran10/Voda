@@ -7,13 +7,9 @@
       (input)="onSearchChange()"
       placeholder="Search for a city..."
     />
-    <button
-      *ngIf="searchTerm"
-      class="clear-button"
-      (click)="clearSearch()"
-      aria-label="Clear search"
-    >
-      ×
-    </button>
+
+    @if (searchTerm) {
+    <button class="clear-button" (click)="clearSearch()" aria-label="Clear search">×</button>
+    }
   </div>
 </div>
