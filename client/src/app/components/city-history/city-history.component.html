@@ -1,0 +1,130 @@
+<div class="city-history-container">
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading city weather history...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+    <a routerLink="/" class="back-button">Back to Weather List</a>
+  </div>
+
+  <div *ngIf="!isLoading && !error && city" class="content">
+    <!-- Header with City Name and Controls -->
+    <header class="page-header">
+      <div class="header-top">
+        <a routerLink="/" class="back-link">
+          <span class="back-arrow">←</span>
+          <span>Back to List</span>
+        </a>
+        <app-temperature-toggle (unitChange)="onUnitChange($event)"></app-temperature-toggle>
+      </div>
+      <h1 class="city-title">{{ city.city }}</h1>
+      <p class="subtitle">Weather History & Statistics</p>
+    </header>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid" *ngIf="stats">
+      <div class="stat-card temperature">
+        <div class="stat-icon">🌡️</div>
+        <div class="stat-content">
+          <h3>Temperature Range</h3>
+          <div class="stat-values">
+            <div class="stat-item">
+              <span class="label">Min:</span>
+              <span class="value">{{ stats.minTemp | number:'1.0-1' }}{{ temperatureSymbol }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="label">Max:</span>
+              <span class="value">{{ stats.maxTemp | number:'1.0-1' }}{{ temperatureSymbol }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="label">Avg:</span>
+              <span class="value highlight">{{ stats.avgTemp | number:'1.0-1' }}{{ temperatureSymbol }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card humidity">
+        <div class="stat-icon">💧</div>
+        <div class="stat-content">
+          <h3>Humidity Range</h3>
+          <div class="stat-values">
+            <div class="stat-item">
+              <span class="label">Min:</span>
+              <span class="value">{{ stats.minHumidity | number:'1.0-0' }}%</span>
+            </div>
+            <div class="stat-item">
+              <span class="label">Max:</span>
+              <span class="value">{{ stats.maxHumidity | number:'1.0-0' }}%</span>
+            </div>
+            <div class="stat-item">
+              <span class="label">Avg:</span>
+              <span class="value highlight">{{ stats.avgHumidity | number:'1.0-0' }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card forecast-count">
+        <div class="stat-icon">📅</div>
+        <div class="stat-content">
+          <h3>Forecast Days</h3>
+          <div class="stat-big-number">{{ city.forecast.length }}</div>
+          <p class="stat-description">Days of data available</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temperature Chart -->
+    <div class="chart-section">
+      <h2 class="section-title">Temperature Trend</h2>
+      <div class="chart-container">
+        <canvas baseChart
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [type]="lineChartType">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Forecast Table -->
+    <div class="table-section">
+      <h2 class="section-title">Complete Forecast Data</h2>
+      <div class="table-wrapper">
+        <table class="forecast-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Temperature</th>
+              <th>Humidity</th>
+              <th>Visual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let forecast of city.forecast" class="forecast-row">
+              <td class="date-cell">
+                <span class="date-text">{{ forecast.date }}</span>
+              </td>
+              <td class="temp-cell">
+                <span class="temp-value">{{ getTemperature(forecast) | number:'1.0-1' }}{{ temperatureSymbol }}</span>
+              </td>
+              <td class="humidity-cell">
+                <div class="humidity-container">
+                  <span class="humidity-value">{{ forecast.humidity }}%</span>
+                  <div class="humidity-bar">
+                    <div class="humidity-fill" [style.width.%]="forecast.humidity"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="visual-cell">
+                <span class="weather-emoji">{{ getWeatherEmoji(forecast) }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

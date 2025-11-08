@@ -1,0 +1,398 @@
+[
+    {
+      "id":1,  
+      "city": "New York",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 15,
+          "temperatureFahrenheit": 59,
+          "humidity": 60
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 14,
+          "temperatureFahrenheit": 57,
+          "humidity": 65
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 13,
+          "temperatureFahrenheit": 55,
+          "humidity": 70
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 16,
+          "temperatureFahrenheit": 61,
+          "humidity": 55
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 17,
+          "temperatureFahrenheit": 63,
+          "humidity": 50
+        }
+      ]
+    },
+    {
+      "id":2,
+      "city": "Los Angeles",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 22,
+          "temperatureFahrenheit": 72,
+          "humidity": 40
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 21,
+          "temperatureFahrenheit": 70,
+          "humidity": 45
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 23,
+          "temperatureFahrenheit": 73,
+          "humidity": 35
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 24,
+          "temperatureFahrenheit": 75,
+          "humidity": 30
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 22,
+          "temperatureFahrenheit": 72,
+          "humidity": 40
+        }
+      ]
+    },
+    {
+      "id":3,  
+      "city": "Chicago",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 10,
+          "temperatureFahrenheit": 50,
+          "humidity": 65
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 9,
+          "temperatureFahrenheit": 48,
+          "humidity": 70
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 8,
+          "temperatureFahrenheit": 46,
+          "humidity": 75
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 11,
+          "temperatureFahrenheit": 52,
+          "humidity": 60
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 12,
+          "temperatureFahrenheit": 54,
+          "humidity": 55
+        }
+      ]
+    },
+    {
+      "id":4,  
+      "city": "Houston",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 25,
+          "temperatureFahrenheit": 77,
+          "humidity": 55
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 24,
+          "temperatureFahrenheit": 75,
+          "humidity": 60
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 26,
+          "temperatureFahrenheit": 79,
+          "humidity": 50
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 27,
+          "temperatureFahrenheit": 81,
+          "humidity": 45
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 25,
+          "temperatureFahrenheit": 77,
+          "humidity": 55
+        }
+      ]
+    },
+    {
+      "id":5,    
+      "city": "Miami",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 28,
+          "temperatureFahrenheit": 82,
+          "humidity": 70
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 27,
+          "temperatureFahrenheit": 81,
+          "humidity": 75
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 29,
+          "temperatureFahrenheit": 84,
+          "humidity": 65
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 30,
+          "temperatureFahrenheit": 86,
+          "humidity": 60
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 28,
+          "temperatureFahrenheit": 82,
+          "humidity": 70
+        }
+      ]
+    },
+    {
+      "id":6,
+      "city": "Toronto",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 7,
+          "temperatureFahrenheit": 45,
+          "humidity": 55
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 6,
+          "temperatureFahrenheit": 43,
+          "humidity": 60
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 5,
+          "temperatureFahrenheit": 41,
+          "humidity": 65
+        },
+        {
+          "date": "2023-11-26",
+          "temperatureCelsius": 8,
+          "temperatureFahrenheit": 46,
+          "humidity": 55
+        },
+        {
+          "date": "2023-11-27",
+          "temperatureCelsius": 9,
+          "temperatureFahrenheit": 48,
+          "humidity": 50
+        }
+      ]
+    },
+    {
+      "id":7,
+      "city": "London",
+      "forecast": [
+        {
+          "date": "2023-11-23",
+          "temperatureCelsius": 12,
+          "temperatureFahrenheit": 54,
+          "humidity": 75
+        },
+        {
+          "date": "2023-11-24",
+          "temperatureCelsius": 11,
+          "temperatureFahrenheit": 52,
+          "humidity": 80
+        },
+        {
+          "date": "2023-11-25",
+          "temperatureCelsius": 13,
+          "temperatureFahrenheit": 55,
+          "humidity": 70
+        },
+        {
+            "date": "2023-11-26",
+            "temperatureCelsius": 14,
+            "temperatureFahrenheit": 57,
+            "humidity": 65
+          },
+          {
+            "date": "2023-11-27",
+            "temperatureCelsius": 13,
+            "temperatureFahrenheit": 55,
+            "humidity": 70
+          }
+        ]
+      },
+      {
+        "id":8,
+        "city": "Paris",
+        "forecast": [
+          {
+            "date": "2023-11-23",
+            "temperatureCelsius": 14,
+            "temperatureFahrenheit": 57,
+            "humidity": 70
+          },
+          {
+            "date": "2023-11-24",
+            "temperatureCelsius": 13,
+            "temperatureFahrenheit": 55,
+            "humidity": 75
+          },
+          {
+            "date": "2023-11-25",
+            "temperatureCelsius": 15,
+            "temperatureFahrenheit": 59,
+            "humidity": 65
+          },
+          {
+            "date": "2023-11-26",
+            "temperatureCelsius": 16,
+            "temperatureFahrenheit": 61,
+            "humidity": 60
+          },
+          {
+            "date": "2023-11-27",
+            "temperatureCelsius": 14,
+            "temperatureFahrenheit": 57,
+            "humidity": 70
+          }
+        ]
+      },
+      {
+        "id":9,
+        "city": "Tokyo",
+        "forecast": [
+          {
+            "date": "2023-11-23",
+            "temperatureCelsius": 20,
+            "temperatureFahrenheit": 68,
+            "humidity": 50
+          },
+          {
+            "date": "2023-11-24",
+            "temperatureCelsius": 19,
+            "temperatureFahrenheit": 66,
+            "humidity": 55
+          },
+          {
+            "date": "2023-11-25",
+            "temperatureCelsius": 21,
+            "temperatureFahrenheit": 70,
+            "humidity": 45
+          },
+          {
+            "date": "2023-11-26",
+            "temperatureCelsius": 22,
+            "temperatureFahrenheit": 72,
+            "humidity": 40
+          },
+          {
+            "date": "2023-11-27",
+            "temperatureCelsius": 20,
+            "temperatureFahrenheit": 68,
+            "humidity": 50
+          }
+        ]
+      },
+      {
+        "id":10,
+        "city": "Sydney",
+        "forecast": [
+          {
+            "date": "2023-11-23",
+            "temperatureCelsius": 25,
+            "temperatureFahrenheit": 77,
+            "humidity": 45
+          },
+          {
+            "date": "2023-11-24",
+            "temperatureCelsius": 24,
+            "temperatureFahrenheit": 75,
+            "humidity": 50
+          },
+          {
+            "date": "2023-11-25",
+            "temperatureCelsius": 26,
+            "temperatureFahrenheit": 79,
+            "humidity": 40
+          },
+          {
+            "date": "2023-11-26",
+            "temperatureCelsius": 27,
+            "temperatureFahrenheit": 81,
+            "humidity": 35
+          },
+          {
+            "date": "2023-11-27",
+            "temperatureCelsius": 25,
+            "temperatureFahrenheit": 77,
+            "humidity": 45
+          }
+        ]
+      },
+      {
+        "id":11,
+        "city": "Beijing",
+        "forecast": [
+          {
+            "date": "2023-11-23",
+            "temperatureCelsius": 8,
+            "temperatureFahrenheit": 46,
+            "humidity": 35
+          },
+          {
+            "date": "2023-11-24",
+            "temperatureCelsius": 7,
+            "temperatureFahrenheit": 45,
+            "humidity": 40
+          },
+          {
+            "date": "2023-11-25",
+            "temperatureCelsius": 9,
+            "temperatureFahrenheit": 48,
+            "humidity": 30
+          },
+          {
+            "date": "2023-11-26",
+            "temperatureCelsius": 10,
+            "temperatureFahrenheit": 50,
+            "humidity": 35
+          },
+          {
+            "date": "2023-11-27",
+            "temperatureCelsius": 8,
+            "temperatureFahrenheit": 46,
+            "humidity": 35
+          }
+        ]
+      }
+ ]

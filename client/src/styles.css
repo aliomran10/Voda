@@ -1,0 +1,19 @@
+/* Global styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* ensures gradient stays smooth while scrolling */
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+}

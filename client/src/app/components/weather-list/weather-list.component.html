@@ -1,0 +1,45 @@
+<div class="weather-list-container">
+  <header class="header">
+    <h1 class="title">Weather Forecast</h1>
+    <p class="subtitle">View weather conditions in cities around the world</p>
+  </header>
+
+  <div class="controls">
+    <div class="controls-row">
+      <app-city-search (searchChange)="onSearchChange($event)"></app-city-search>
+    </div>
+    <div class="controls-row">
+      <app-date-picker
+        [availableDates]="availableDates"
+        (dateChange)="onDateChange($event)"
+      ></app-date-picker>
+      <app-temperature-toggle
+        (unitChange)="onUnitChange($event)"
+      ></app-temperature-toggle>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading weather data...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+    <button class="retry-button" (click)="loadWeatherData()">Retry</button>
+  </div>
+
+  <div *ngIf="!isLoading && !error" class="weather-grid">
+    <app-weather-card
+      *ngFor="let city of filteredCities"
+      [city]="city"
+      [selectedDate]="selectedDate"
+      [temperatureUnit]="temperatureUnit"
+      (cardClick)="onCardClick($event)"
+    ></app-weather-card>
+  </div>
+
+  <div *ngIf="!isLoading && !error && filteredCities.length === 0" class="no-results">
+    <p>No cities found matching your criteria.</p>
+  </div>
+</div>

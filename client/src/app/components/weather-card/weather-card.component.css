@@ -1,0 +1,100 @@
+.weather-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.weather-card.clickable {
+  cursor: pointer;
+}
+
+.weather-card.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card:hover .click-hint {
+  opacity: 1;
+}
+
+.city-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.temperature {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.temp-value {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.temp-unit {
+  font-size: 24px;
+  opacity: 0.9;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.label {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.value {
+  opacity: 0.95;
+}
+
+.no-data {
+  background: linear-gradient(135deg, #999 0%, #666 100%);
+  justify-content: center;
+  align-items: center;
+}
+
+.no-data-message {
+  font-size: 14px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.click-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}

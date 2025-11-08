@@ -1,0 +1,25 @@
+<div class="weather-card clickable" *ngIf="displayedForecast" (click)="onCardClick()">
+  <div class="city-name">{{ city.city }}</div>
+  <div class="weather-info">
+    <div class="temperature">
+      <span class="temp-value">{{ temperature }}</span>
+      <span class="temp-unit">{{ temperatureSymbol }}</span>
+    </div>
+    <div class="details">
+      <div class="detail-item">
+        <span class="label">Date:</span>
+        <span class="value">{{ displayedForecast.date }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Humidity:</span>
+        <span class="value">{{ displayedForecast.humidity }}%</span>
+      </div>
+    </div>
+  </div>
+  <div class="click-hint">Click for details →</div>
+</div>
+
+<div class="weather-card no-data" *ngIf="!displayedForecast">
+  <div class="city-name">{{ city.city }}</div>
+  <div class="no-data-message">No weather data available for selected date</div>
+</div>
